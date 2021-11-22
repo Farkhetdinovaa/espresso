@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.table_wdg = QtWidgets.QTableWidget(self.centralwidget)
-        self.table_wdg.setGeometry(QtCore.QRect(10, 10, 750, 311))
+        self.table_wdg.setGeometry(QtCore.QRect(10, 10, 710, 311))
         self.table_wdg.setObjectName("tableView")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -60,9 +60,7 @@ class Espresso(Ui_MainWindow, QMainWindow):
             for j, elem in enumerate(row):
                 self.table_wdg.setItem(
                     i, j, QTableWidgetItem(str(elem)))
-
-    def closeEvent(self, event):
-        self.connection.close()
+        con.close()
 
 def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)
